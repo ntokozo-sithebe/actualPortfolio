@@ -1,16 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <button @click="increment"> adding +</button>
+  <span> {{ counter }}</span>
+  <button @click="decrement"> Subtract -</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {},
+  computed:{
+    counter(){
+     return this.$store.state.cnt
+    },
+  },
+  methods:{
+    increment(){
+      this.$store.dispatch('increment')
+    },
+    decrement(){
+      this.$store.dispatch('decrement')
+    }
   }
+
 }
 </script>
 
